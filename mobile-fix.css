@@ -1,0 +1,72 @@
+@media (max-width: 640px) {
+  .mock-site {
+    min-height: 610px;
+    padding: 22px;
+  }
+
+  .mock-hero {
+    margin-top: 92px;
+    max-width: 100%;
+    padding-bottom: 210px;
+  }
+
+  .mock-hero h2 {
+    font-size: clamp(38px, 12vw, 50px);
+    line-height: .94;
+    max-width: 100%;
+  }
+
+  .mock-hero p {
+    max-width: 100%;
+    padding-right: 0;
+    margin-bottom: 0;
+    line-height: 1.55;
+  }
+
+  .mock-button {
+    margin-top: 20px;
+  }
+
+  .mock-stat-card {
+    left: 22px;
+    right: auto;
+    bottom: 24px;
+    width: min(210px, calc(100% - 44px));
+    padding: 16px 18px;
+  }
+
+  .mock-stat-card strong {
+    font-size: 25px;
+    line-height: 1.08;
+  }
+
+  .chip-one {
+    top: 84px;
+    right: 14px;
+  }
+
+  .chip-two {
+    left: auto;
+    right: 18px;
+    bottom: 34px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mock-site {
+    min-height: 640px;
+  }
+
+  .mock-hero {
+    padding-bottom: 220px;
+  }
+
+  .mock-stat-card {
+    width: 178px;
+  }
+
+  .chip-two {
+    right: 14px;
+    bottom: 28px;
+  }
+}
