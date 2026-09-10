@@ -1,3 +1,77 @@
+/* Cross-device polish: keep decorative art from covering content */
+html { scroll-padding-top: 96px; }
+
+.range-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.range-card::before {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.range-card h3,
+.range-card p,
+.range-card b,
+.range-card .range-top {
+  position: relative;
+  z-index: 2;
+}
+
+.product::before {
+  width: 145px !important;
+  height: 145px !important;
+  right: -28px !important;
+  top: 82px !important;
+  opacity: .14 !important;
+}
+
+.local::before {
+  width: 115px !important;
+  height: 150px !important;
+  right: 12px !important;
+  top: 86px !important;
+  opacity: .18 !important;
+}
+
+.luxury::before {
+  opacity: .24 !important;
+}
+
+@media (min-width: 681px) {
+  .range-card h3,
+  .range-card p,
+  .range-card b {
+    max-width: 76%;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 681px) {
+  .range-card {
+    padding: 24px;
+    min-height: 430px;
+  }
+
+  .range-card h3 {
+    font-size: clamp(28px, 3vw, 40px);
+  }
+
+  .product::before {
+    width: 110px !important;
+    height: 110px !important;
+    right: -18px !important;
+    top: 74px !important;
+  }
+
+  .local::before {
+    width: 90px !important;
+    height: 120px !important;
+    right: 8px !important;
+    top: 78px !important;
+  }
+}
+
 @media (max-width: 640px) {
   .mock-site {
     min-height: 610px;
@@ -23,9 +97,7 @@
     line-height: 1.55;
   }
 
-  .mock-button {
-    margin-top: 20px;
-  }
+  .mock-button { margin-top: 20px; }
 
   .mock-stat-card {
     left: 22px;
@@ -51,9 +123,20 @@
     bottom: 34px;
   }
 
-  .range-card > * {
-    position: relative;
-    z-index: 2;
+  .range-card {
+    min-height: 390px;
+    padding: 28px;
+  }
+
+  .range-card h3,
+  .range-card p,
+  .range-card b,
+  .range-card .range-top {
+    max-width: 100%;
+  }
+
+  .range-card h3 {
+    padding-top: 118px;
   }
 
   .product {
@@ -61,19 +144,19 @@
   }
 
   .product::before {
-    width: 150px !important;
-    height: 150px !important;
-    right: -38px !important;
-    top: 88px !important;
-    opacity: .62;
-    z-index: 0;
+    width: 96px !important;
+    height: 96px !important;
+    right: 14px !important;
+    top: 72px !important;
+    opacity: .12 !important;
   }
 
-  .product h3,
-  .product p,
-  .product b,
-  .product .range-top {
-    max-width: 78%;
+  .local::before {
+    width: 78px !important;
+    height: 106px !important;
+    right: 12px !important;
+    top: 76px !important;
+    opacity: .14 !important;
   }
 
   .process-flow {
@@ -91,7 +174,7 @@
 
   .process-flow i {
     transform: rotate(90deg);
-    opacity: .5;
+    opacity: .45;
   }
 
   .micdrop-section {
@@ -100,27 +183,11 @@
 }
 
 @media (max-width: 420px) {
-  .mock-site {
-    min-height: 640px;
-  }
-
-  .mock-hero {
-    padding-bottom: 220px;
-  }
-
-  .mock-stat-card {
-    width: 178px;
-  }
-
+  .mock-site { min-height: 640px; }
+  .mock-hero { padding-bottom: 220px; }
+  .mock-stat-card { width: 178px; }
   .chip-two {
     right: 14px;
     bottom: 28px;
-  }
-
-  .product h3,
-  .product p,
-  .product b,
-  .product .range-top {
-    max-width: 74%;
   }
 }
