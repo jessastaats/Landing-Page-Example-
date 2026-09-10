@@ -22,3 +22,18 @@ form?.addEventListener('submit', event => {
   event.preventDefault();
   success?.classList.add('show');
 });
+
+const processHeading = document.querySelector('.process-intro h2');
+if (processHeading) processHeading.textContent = 'From rough idea to ready-to-launch.';
+
+const confidentCopy = document.querySelector('.feeling-grid article:nth-child(3) p');
+if (confidentCopy) confidentCopy.textContent = 'A polished, professional website builds trust before they ever contact you.';
+
+const micdropLabel = document.querySelector('.micdrop-shell .eyebrow-text');
+const micdropHeading = document.querySelector('.micdrop-shell h2');
+const micdropCopy = document.querySelector('.micdrop-shell > p:not(.eyebrow-text)');
+const micdropButton = document.querySelector('.micdrop-shell .button-primary');
+if (micdropLabel) micdropLabel.textContent = 'Still wondering if I’m the right designer?';
+if (micdropHeading) micdropHeading.textContent = 'If this page kept your attention, imagine what yours could do for your customers.';
+if (micdropCopy) micdropCopy.textContent = 'Good design gives people a reason to keep reading, remember your business, and take the next step.';
+if (micdropButton) micdropButton.innerHTML = 'Let’s build yours <span>↗</span>';
