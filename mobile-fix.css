@@ -6,7 +6,8 @@ html { scroll-padding-top: 96px; }
   z-index: 2;
 }
 
-.range-card::before {
+.range-card::before,
+.range-card::after {
   z-index: 0;
   pointer-events: none;
 }
@@ -17,34 +18,194 @@ html { scroll-padding-top: 96px; }
 .range-card .range-top {
   position: relative;
   z-index: 2;
+  max-width: 100%;
 }
 
-.product::before {
-  width: 145px !important;
-  height: 145px !important;
-  right: -28px !important;
-  top: 82px !important;
-  opacity: .14 !important;
+/* Three intentionally different visual directions */
+.range-card {
+  isolation: isolate;
 }
 
-.local::before {
-  width: 115px !important;
-  height: 150px !important;
-  right: 12px !important;
-  top: 86px !important;
-  opacity: .18 !important;
+/* Luxury editorial: dark, restrained, serif-led */
+.range-card.luxury {
+  background: linear-gradient(155deg, #171310 0%, #211a16 100%) !important;
+  color: #f5eee4;
+  border: 1px solid #6f5b49;
+  border-radius: 18px;
+  padding: 34px;
+}
+.range-card.luxury::before {
+  content: "";
+  position: absolute;
+  width: 1px !important;
+  height: 62% !important;
+  left: 50% !important;
+  right: auto !important;
+  top: 19% !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: linear-gradient(to bottom, transparent, rgba(220,190,150,.45), transparent) !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+.range-card.luxury::after {
+  content: "01";
+  position: absolute;
+  right: 26px;
+  bottom: 22px;
+  font: 500 54px/1 Georgia, serif;
+  color: rgba(245,238,228,.055);
+}
+.range-card.luxury .range-top span {
+  font-family: Georgia, serif;
+  letter-spacing: .14em;
+  font-weight: 500;
+}
+.range-card.luxury h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  font-size: clamp(38px, 3.5vw, 56px);
+  line-height: .96;
+  letter-spacing: -.04em;
+  max-width: 88%;
+}
+.range-card.luxury p {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 84%;
+  color: #c9bcae;
+  opacity: 1;
+}
+.range-card.luxury b {
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: .12em;
+  font-size: 10px;
 }
 
-.luxury::before {
-  opacity: .24 !important;
+/* Local business: warm, organic, approachable */
+.range-card.local {
+  background: #f3e8d8 !important;
+  color: #254332;
+  border: 0;
+  border-radius: 42px 18px 42px 18px;
+  padding: 32px;
+  box-shadow: inset 0 0 0 1px rgba(37,67,50,.12);
+}
+.range-card.local::before {
+  content: "";
+  position: absolute;
+  width: 46% !important;
+  height: 34% !important;
+  right: 7% !important;
+  top: 16% !important;
+  border-radius: 52% 48% 42% 58% / 45% 55% 45% 55% !important;
+  background:
+    radial-gradient(circle at 72% 25%, #f9d89c 0 9%, transparent 10%),
+    linear-gradient(145deg, #aac79e 0 48%, #7ea178 49% 100%) !important;
+  opacity: .95 !important;
+  transform: rotate(4deg);
+}
+.range-card.local::after {
+  content: "LOCAL • FRIENDLY • EASY";
+  position: absolute;
+  left: 32px;
+  bottom: 24px;
+  font: 700 9px/1 'DM Sans', sans-serif;
+  letter-spacing: .14em;
+  color: rgba(37,67,50,.42);
+}
+.range-card.local .range-top span {
+  background: #254332;
+  color: #fffaf2;
+  padding: 8px 11px;
+  border-radius: 999px;
+  letter-spacing: .08em;
+}
+.range-card.local h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(36px, 3.2vw, 50px);
+  line-height: .98;
+  letter-spacing: -.055em;
+  max-width: 72%;
+}
+.range-card.local p {
+  max-width: 76%;
+  color: #496858;
+  opacity: 1;
+}
+.range-card.local b {
+  display: inline-block;
+  width: fit-content;
+  background: #254332;
+  color: #fffaf2;
+  padding: 11px 14px;
+  border-radius: 999px;
 }
 
-@media (min-width: 681px) {
-  .range-card h3,
-  .range-card p,
-  .range-card b {
-    max-width: 76%;
-  }
+/* Product brand: bold, graphic, e-commerce energy */
+.range-card.product {
+  background: #fff8ee !important;
+  color: #101114;
+  border: 3px solid #101114;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 8px 8px 0 #101114;
+}
+.range-card.product::before {
+  content: "";
+  position: absolute;
+  width: 46% !important;
+  height: 40% !important;
+  right: -6% !important;
+  top: 11% !important;
+  border-radius: 0 !important;
+  background: repeating-linear-gradient(-45deg,#5b4df5 0 16px,#5b4df5 16px 31px,#ff8f7b 31px 47px,#ff8f7b 47px 62px) !important;
+  transform: rotate(7deg);
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+.range-card.product::after {
+  content: "NEW";
+  position: absolute;
+  right: 24px;
+  bottom: 28px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ff8f7b;
+  border: 2px solid #101114;
+  font: 900 11px/1 'Manrope', sans-serif;
+  letter-spacing: .08em;
+  transform: rotate(10deg);
+}
+.range-card.product .range-top span {
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+.range-card.product h3 {
+  font-family: 'Manrope', sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(34px, 3vw, 48px);
+  line-height: .9;
+  letter-spacing: -.065em;
+  max-width: 70%;
+}
+.range-card.product p {
+  max-width: 72%;
+  color: #373942;
+  opacity: 1;
+}
+.range-card.product b {
+  display: inline-block;
+  width: fit-content;
+  background: #101114;
+  color: #fff8ee;
+  padding: 11px 13px;
+  border: 2px solid #101114;
+  box-shadow: 4px 4px 0 #ff8f7b;
 }
 
 @media (max-width: 1100px) and (min-width: 681px) {
@@ -52,23 +213,16 @@ html { scroll-padding-top: 96px; }
     padding: 24px;
     min-height: 430px;
   }
-
-  .range-card h3 {
+  .range-card.luxury h3,
+  .range-card.local h3,
+  .range-card.product h3 {
     font-size: clamp(28px, 3vw, 40px);
   }
-
-  .product::before {
-    width: 110px !important;
-    height: 110px !important;
-    right: -18px !important;
-    top: 74px !important;
-  }
-
-  .local::before {
-    width: 90px !important;
-    height: 120px !important;
-    right: 8px !important;
-    top: 78px !important;
+  .range-card.local h3,
+  .range-card.local p,
+  .range-card.product h3,
+  .range-card.product p {
+    max-width: 74%;
   }
 }
 
@@ -77,28 +231,23 @@ html { scroll-padding-top: 96px; }
     min-height: 610px;
     padding: 22px;
   }
-
   .mock-hero {
     margin-top: 92px;
     max-width: 100%;
     padding-bottom: 210px;
   }
-
   .mock-hero h2 {
     font-size: clamp(38px, 12vw, 50px);
     line-height: .94;
     max-width: 100%;
   }
-
   .mock-hero p {
     max-width: 100%;
     padding-right: 0;
     margin-bottom: 0;
     line-height: 1.55;
   }
-
   .mock-button { margin-top: 20px; }
-
   .mock-stat-card {
     left: 22px;
     right: auto;
@@ -106,57 +255,62 @@ html { scroll-padding-top: 96px; }
     width: min(210px, calc(100% - 44px));
     padding: 16px 18px;
   }
-
   .mock-stat-card strong {
     font-size: 25px;
     line-height: 1.08;
   }
-
-  .chip-one {
-    top: 84px;
-    right: 14px;
-  }
-
-  .chip-two {
-    left: auto;
-    right: 18px;
-    bottom: 34px;
-  }
+  .chip-one { top: 84px; right: 14px; }
+  .chip-two { left: auto; right: 18px; bottom: 34px; }
 
   .range-card {
-    min-height: 390px;
+    min-height: 420px;
     padding: 28px;
   }
-
-  .range-card h3,
-  .range-card p,
-  .range-card b,
-  .range-card .range-top {
+  .range-card h3 {
+    padding-top: 112px;
+  }
+  .range-card.luxury {
+    border-radius: 16px;
+  }
+  .range-card.luxury h3,
+  .range-card.luxury p {
     max-width: 100%;
   }
-
-  .range-card h3 {
-    padding-top: 118px;
+  .range-card.local {
+    border-radius: 34px 14px 34px 14px;
   }
-
-  .product {
-    background: #e7edc8 !important;
+  .range-card.local::before {
+    width: 42% !important;
+    height: 28% !important;
+    right: 8% !important;
+    top: 18% !important;
   }
-
-  .product::before {
-    width: 96px !important;
-    height: 96px !important;
-    right: 14px !important;
-    top: 72px !important;
-    opacity: .12 !important;
+  .range-card.local h3,
+  .range-card.local p {
+    max-width: 100%;
   }
-
-  .local::before {
-    width: 78px !important;
-    height: 106px !important;
-    right: 12px !important;
-    top: 76px !important;
-    opacity: .14 !important;
+  .range-card.local::after {
+    left: 28px;
+    bottom: 20px;
+  }
+  .range-card.product {
+    box-shadow: 6px 6px 0 #101114;
+  }
+  .range-card.product::before {
+    width: 40% !important;
+    height: 27% !important;
+    right: -4% !important;
+    top: 15% !important;
+  }
+  .range-card.product h3,
+  .range-card.product p {
+    max-width: 100%;
+  }
+  .range-card.product::after {
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    bottom: 22px;
   }
 
   .process-flow {
@@ -165,18 +319,15 @@ html { scroll-padding-top: 96px; }
     align-items: center;
     gap: 12px;
   }
-
   .process-flow span,
   .process-flow i {
     width: auto;
     text-align: center;
   }
-
   .process-flow i {
     transform: rotate(90deg);
     opacity: .45;
   }
-
   .micdrop-section {
     background: linear-gradient(135deg, #ece9df 0%, #dfe7f0 52%, #e8e1ef 100%) !important;
   }
@@ -186,8 +337,5 @@ html { scroll-padding-top: 96px; }
   .mock-site { min-height: 640px; }
   .mock-hero { padding-bottom: 220px; }
   .mock-stat-card { width: 178px; }
-  .chip-two {
-    right: 14px;
-    bottom: 28px;
-  }
+  .chip-two { right: 14px; bottom: 28px; }
 }
